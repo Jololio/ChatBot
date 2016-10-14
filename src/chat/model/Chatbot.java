@@ -4,8 +4,9 @@ import java.util.ArrayList;
 
 /**
  * Base version of the 2015 Chatbot class. Only stub methods are provided.
- * Students will complete methods as part * of the project. * @author Cody
- * Henrichsen * @version 1.0 10/14/15
+ * Students will complete methods as part * of the project. * 
+ * @author Joseph AlAbudi 
+ * @version 1.0 10/15/16
  */
 public class Chatbot {
 	private ArrayList<String> memesList;
@@ -17,13 +18,21 @@ public class Chatbot {
 	 * * Creates an instance of the Chatbot with the supplied username. * @param
 	 * userName The username for the chatbot.
 	 */
-	public Chatbot(String userName) {
+	public Chatbot(String userName) 
+	{
+		this.memesList = new ArrayList<String>();
+		this.userName = new String(userName);
+		
 	}
 
-	private void buildMemesList() {
+	private void buildMemesList() 
+	{
+		
 	}
 
-	private void buildPoliticalTopicsList() {
+	private void buildPoliticalTopicsList() 
+	{
+		
 	}
 
 	/**
@@ -93,7 +102,7 @@ public class Chatbot {
 	 * meme list.
 	 */
 	public ArrayList<String> getMemesList() {
-		return null;
+		return memesList;
 	}
 
 	/**
