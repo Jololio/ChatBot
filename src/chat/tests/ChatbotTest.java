@@ -2,9 +2,12 @@ package chat.tests;
 
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
 import chat.model.Chatbot;
 
 /**
@@ -42,6 +45,8 @@ public class ChatbotTest
 	@Test
 	public void testGetUserName()
 	{
+		String userName = "User Name";
+		sampleBot.setUserName(userName);
 		assertSame("Getters work", userName, sampleBot.getUserName());
 	}
 
@@ -62,6 +67,8 @@ public class ChatbotTest
 	@Test
 	public void testGetPoliticalTopicList()
 	{
+		ArrayList<String> politicalTopicList = "";
+		sampleBot.setPoliticalTopicList(politicalTopicList);
 		assertNotNull("Constructors and Getters still work in Java", sampleBot.getPoliticalTopicList());
 	}
 	

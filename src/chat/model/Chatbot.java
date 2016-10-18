@@ -22,7 +22,7 @@ public class Chatbot {
 	{
 		this.memesList = new ArrayList<String>();
 		this.userName = new String(userName);
-		
+		this.content = new String("asdasdasd");
 	}
 
 	private void buildMemesList() 
@@ -61,7 +61,10 @@ public class Chatbot {
 	 *            The supplied String to be checked. * @return Whether it
 	 *            matches the content area.
 	 */
-	public boolean contentChecker(String currentInput) {
+	public boolean contentChecker(String currentInput) 
+	{
+		
+		
 		return false;
 	}
 
@@ -94,23 +97,26 @@ public class Chatbot {
 	 * * Returns the username of this Chatbot instance. * @return The username
 	 * of the Chatbot.
 	 */
-	public String getUserName() {
-		return null;
+	public String getUserName() 
+	{
+		return userName;
 	}
 
 	/**
 	 * * Returns the content area for this Chatbot instance. * @return The
 	 * content area for this Chatbot instance.
 	 */
-	public String getContent() {
-		return null;
+	public String getContent() 
+	{
+		return content;
 	}
 
 	/**
 	 * * Getter method for the memesList object. * @return The reference to the
 	 * meme list.
 	 */
-	public ArrayList<String> getMemesList() {
+	public ArrayList<String> getMemesList() 
+	{
 		return memesList;
 	}
 
@@ -118,15 +124,27 @@ public class Chatbot {
 	 * * Getter method for the politicalTopicList object. * @return The
 	 * reference to the political topic list.
 	 */
-	public ArrayList<String> getPoliticalTopicList() {
-		return null;
+	public ArrayList<String> getPoliticalTopicList() 
+	{
+		return politicalTopicList;
 	}
 
 	/**
 	 * * Updates the content area for this Chatbot instance. * @param content
 	 * The updated value for the content area.
 	 */
-	public void setContent(String content) {
+	public void setContent(String content) 
+	{
+		this.content = content;
 	}
 
+	public void setUserName(String userName)
+	{
+		this.userName = userName;
+	}
+	
+	public void setPoliticalTopicList (ArrayList<String> politicalTopicList)
+	{
+		this.politicalTopicList = politicalTopicList;
+	}
 }
