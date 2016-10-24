@@ -24,11 +24,31 @@ public class Chatbot {
 		this.userName = new String(userName);
 		this.content = new String("Thai food");
 		this.buildMemesList();
-		
+		buildPoliticalTopicsList();
 	}
 
 	private void buildMemesList() 
 	{
+		ArrayList<String> memesList = new ArrayList<>();
+		memesList.add("doge");
+		memesList.add("cute animals");
+		memesList.add("grumpy cat");
+		memesList.add("dat boi");
+		memesList.add("willy wonka");
+		memesList.add("harambe");
+		memesList.add("john cena");
+		memesList.add("Lord of the Rings");
+		memesList.add("damn daniel");
+		memesList.add("yo dawg");
+		memesList.add("y u no");
+		memesList.add("rick harrison");
+		memesList.add("puppy monkey baby");
+		memesList.add("just a prank bro");
+		memesList.add("karate kyle");
+		memesList.add("sloth");
+		memesList.add("crazy girlfriend");
+		
+	
 		
 	}
 
@@ -65,9 +85,15 @@ public class Chatbot {
 	 */
 	public boolean contentChecker(String currentInput) 
 	{
+		boolean hasContent = false;
+		
+		if(currentInput.contains(content))
+		{
+			hasContent = true;
+		}
 		
 		
-		return false;
+		return hasContent;
 	}
 
 	/**
@@ -79,7 +105,10 @@ public class Chatbot {
 	 *            The supplied String to be checked. * @return Whether the
 	 *            String is contained in the ArrayList.
 	 */
-	public boolean politicalTopicChecker(String currentInput) {
+	public boolean politicalTopicChecker(String currentInput) 
+	{
+		
+		
 		return false;
 	}
 
@@ -91,8 +120,16 @@ public class Chatbot {
 	 *            The supplied String to be checked. * @return Whether the
 	 *            supplied String is a recognized meme.
 	 */
-	public boolean memeChecker(String currentInput) {
-		return false;
+	public boolean memeChecker(String currentInput) 
+	{
+		boolean hasMemes = false;
+		
+		if(currentInput.contains(//must insert for loop here))
+		{
+			hasMemes = true;
+		}
+		
+		return hasMemes;
 	}
 
 	/**
@@ -149,4 +186,6 @@ public class Chatbot {
 	{
 		this.politicalTopicList = politicalTopicList;
 	}
+	
+	
 }
