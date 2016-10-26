@@ -22,7 +22,7 @@ public class Chatbot {
 	{
 		this.memesList = new ArrayList<String>();
 		this.userName = new String(userName);
-		this.content = new String("Thai food");
+		this.content = new String("My Lord and Savior, Jesus Christ");
 		this.buildMemesList();
 		buildPoliticalTopicsList();
 	}
@@ -48,12 +48,35 @@ public class Chatbot {
 		memesList.add("sloth");
 		memesList.add("crazy girlfriend");
 		
+		
+		
 	
 		
 	}
 
 	private void buildPoliticalTopicsList() 
 	{
+		ArrayList<String> politicalList = new ArrayList<>();
+		politicalList.add("election");
+		politicalList.add("Democrat");
+		politicalList.add("Republican");
+		politicalList.add("liberal");
+		politicalList.add("conservative");
+		politicalList.add("Clinton");
+		politicalList.add("Trump");
+		politicalList.add("Kaine");
+		politicalList.add("Pence");
+		politicalList.add("11/28/2016");
+		politicalList.add("Stein");
+		politicalList.add("Johnson");
+		politicalList.add("Immigration");
+		politicalList.add("Equality");
+		politicalList.add("Military");
+		politicalList.add("Middle East");
+		politicalList.add("debate");
+		politicalList.add("campaign");
+		politicalList.add("3rd Party");
+		politicalList.add("McMullin");
 		
 	}
 
@@ -107,9 +130,14 @@ public class Chatbot {
 	 */
 	public boolean politicalTopicChecker(String currentInput) 
 	{
+		boolean hasPolitics = false;
 		
+		if(currentInput.contains())
+		{
+			hasPolitics = true;
+		}
 		
-		return false;
+		return hasPolitics;
 	}
 
 	/**
@@ -124,10 +152,12 @@ public class Chatbot {
 	{
 		boolean hasMemes = false;
 		
-		if(currentInput.contains(//must insert for loop here))
+		if(currentInput.contains())
 		{
 			hasMemes = true;
 		}
+		
+		
 		
 		return hasMemes;
 	}
