@@ -67,8 +67,6 @@ public class ChatbotTest
 	@Test
 	public void testGetPoliticalTopicList()
 	{
-		ArrayList<String> politicalTopicList = "";
-		sampleBot.setPoliticalTopicList(politicalTopicList);
 		assertNotNull("Constructors and Getters still work in Java", sampleBot.getPoliticalTopicList());
 	}
 	

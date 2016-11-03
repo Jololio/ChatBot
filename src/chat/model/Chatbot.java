@@ -20,6 +20,7 @@ public class Chatbot {
 	 */
 	public Chatbot(String userName) 
 	{
+		this.politicalTopicList = new ArrayList<String>();
 		this.memesList = new ArrayList<String>();
 		this.userName = new String(userName);
 		this.content = new String("My Lord and Savior, Jesus Christ");
@@ -29,7 +30,7 @@ public class Chatbot {
 
 	private void buildMemesList() 
 	{
-		ArrayList<String> memesList = new ArrayList<>();
+		
 		memesList.add("doge");
 		memesList.add("cute animals");
 		memesList.add("grumpy cat");
@@ -47,8 +48,8 @@ public class Chatbot {
 		memesList.add("karate kyle");
 		memesList.add("sloth");
 		memesList.add("crazy girlfriend");
-		
-		
+		memesList.add("inception");
+		memesList.add("Arthur fist");
 		
 	
 		
@@ -56,27 +57,28 @@ public class Chatbot {
 
 	private void buildPoliticalTopicsList() 
 	{
-		ArrayList<String> politicalList = new ArrayList<>();
-		politicalList.add("election");
-		politicalList.add("Democrat");
-		politicalList.add("Republican");
-		politicalList.add("liberal");
-		politicalList.add("conservative");
-		politicalList.add("Clinton");
-		politicalList.add("Trump");
-		politicalList.add("Kaine");
-		politicalList.add("Pence");
-		politicalList.add("11/28/2016");
-		politicalList.add("Stein");
-		politicalList.add("Johnson");
-		politicalList.add("Immigration");
-		politicalList.add("Equality");
-		politicalList.add("Military");
-		politicalList.add("Middle East");
-		politicalList.add("debate");
-		politicalList.add("campaign");
-		politicalList.add("3rd Party");
-		politicalList.add("McMullin");
+		
+		politicalTopicList.add("election");
+		politicalTopicList.add("Democrat");
+		politicalTopicList.add("Republican");
+		politicalTopicList.add("liberal");
+		politicalTopicList.add("conservative");
+		politicalTopicList.add("Clinton");
+		politicalTopicList.add("Trump");
+		politicalTopicList.add("Kaine");
+		politicalTopicList.add("Pence");
+		politicalTopicList.add("11/8/16");
+		politicalTopicList.add("Stein");
+		politicalTopicList.add("Johnson");
+		politicalTopicList.add("Immigration");
+		politicalTopicList.add("Equality");
+		politicalTopicList.add("Military");
+		politicalTopicList.add("Middle East");
+		politicalTopicList.add("debate");
+		politicalTopicList.add("campaign");
+		politicalTopicList.add("3rd Party");
+		politicalTopicList.add("McMullin");
+		politicalTopicList.add("Hillary");
 		
 	}
 
@@ -132,9 +134,12 @@ public class Chatbot {
 	{
 		boolean hasPolitics = false;
 		
-		if(currentInput.contains())
+		for(String political: politicalTopicList)
 		{
-			hasPolitics = true;
+			if(currentInput.contains(political))
+			{
+				hasPolitics = true;
+			}
 		}
 		
 		return hasPolitics;
@@ -152,9 +157,12 @@ public class Chatbot {
 	{
 		boolean hasMemes = false;
 		
-		if(currentInput.contains())
+		for(String meme: memesList)
 		{
-			hasMemes = true;
+			if(currentInput.toLowerCase().contains(meme.toLowerCase()))
+			{
+				hasMemes = true;
+			}
 		}
 		
 		
