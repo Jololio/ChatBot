@@ -13,6 +13,7 @@ public class Chatbot {
 	private ArrayList<String> politicalTopicList;
 	private String userName;
 	private String content;
+	private String mashing;
 
 	/**
 	 * * Creates an instance of the Chatbot with the supplied username. * @param
@@ -170,10 +171,28 @@ public class Chatbot {
 		return hasMemes;
 	}
 
+	public boolean keyboardMashChecker(String mashing)
+	{
+		boolean hasKeyboardMash = false;
+		if(mashing.contains(mashing))
+		{
+			hasKeyboardMash = true;
+		}
+		
+		
+		return hasKeyboardMash;
+		
+	}
+	
 	/**
 	 * * Returns the username of this Chatbot instance. * @return The username
 	 * of the Chatbot.
 	 */
+	public String getKeyboardMashing()
+	{
+		return mashing;
+	}
+	
 	public String getUserName() 
 	{
 		return userName;
@@ -210,6 +229,11 @@ public class Chatbot {
 	 * * Updates the content area for this Chatbot instance. * @param content
 	 * The updated value for the content area.
 	 */
+	public void setMashing(String mashing)
+	{
+		this.mashing = mashing;
+	}
+	
 	public void setContent(String content) 
 	{
 		this.content = content;
