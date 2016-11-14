@@ -22,7 +22,7 @@ public class ChatPanelTest
 	@Before
 	public void setUp() throws Exception
 	{
-		basePanel = new ChatPanel(new ChatController());
+		basePanel = new ChatPanel(new ChatbotController());
 	}
 
 	@After
