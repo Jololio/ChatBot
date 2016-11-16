@@ -12,7 +12,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import chat.controller.ChatController;
+import chat.controller.ChatbotController;
 import chat.view.ChatPanel;
 
 public class ChatPanelTest
@@ -35,7 +35,7 @@ public class ChatPanelTest
 	public void testSetupPanel()
 	{
 		assertTrue("Incorrect layout manager specified", basePanel.getLayout() instanceof javax.swing.SpringLayout);
-		assertTrue("Minimum component amount not met", basePanel.getComponents().length >= 4);
+		assertTrue("Minimum component amount not met", basePanel.getComponents().length >= 4);                    
 		
 		for(Component currentGUIComponent : basePanel.getComponents())
 		{
