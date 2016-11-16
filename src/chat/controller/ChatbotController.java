@@ -1,18 +1,19 @@
 package chat.controller;
 import chat.model.Chatbot;
 import chat.view.ChatViewer;
-
+import chat.view.ChatFrame;
 
 public class ChatbotController 
 {
 	private Chatbot stupidBot;
 	private ChatViewer chatView;
-	
+	private ChatFrame baseFrame;
 	
 	public ChatbotController()
 	{
 		stupidBot = new Chatbot("Boaty McBoatFace");
 		chatView = new ChatViewer();
+		baseFrame = new ChatFrame(this);
 	}
 	
 	public void start() 
@@ -28,7 +29,7 @@ public class ChatbotController
 		
 	}
 	
-	private String useChatbotCheckers(String input)
+	public String useChatbotCheckers(String input)
 	{
 		String answer = "";
 		
@@ -40,7 +41,7 @@ public class ChatbotController
 		{
 			answer += "\nI can has memes?\n";
 		}
-		if(answer.length() == 0)
+		if(stupidBot.lengthChecker(answer))
 		{
 			answer += "Sorry, I don't know about " + input;
 		}
@@ -48,4 +49,6 @@ public class ChatbotController
 		return answer;
 	}
 
+	
+	
 }
