@@ -83,6 +83,14 @@ public class Chatbot {
 		
 	}
 
+	public boolean quitChecker(String userInput)
+	{
+		
+	}
+	
+	
+	
+	
 	/**
 	 * * Checks the length of the supplied string. Returns false if the supplied
 	 * String is empty or null, otherwise returns true. * @param currentInput * @return

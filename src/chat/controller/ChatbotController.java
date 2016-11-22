@@ -33,22 +33,50 @@ public class ChatbotController
 	{
 		String answer = "";
 		
-		if(stupidBot.contentChecker(input))
+		if(!stupidBot.quitChecker(input))
 		{
-			answer += "\nYou know my special secret\n";
+			if(stupidBot.contentChecker(input))
+			{
+				answer += "\nYou know my special secret\n";
+			}
+			if(stupidBot.memeChecker(input))
+			{
+				answer += "\nI can has memes?\n";
+			}
+			if(!stupidBot.lengthChecker(answer))
+			{
+				answer += "Sorry, I don't know about " + input;
+			}
+			
+			int canBeRandom = (int) (Math.random() * 7);
+			if (canBeRandom % 7 == 0)
+			{
+				answer += randomTopicGenerator();
+			}
 		}
-		if(stupidBot.memeChecker(input))
+		else
 		{
-			answer += "\nI can has memes?\n";
+			chatView.displayMessage("Thank you for chatting with me :D");
+			System.exit(0);
 		}
-		if(stupidBot.lengthChecker(answer))
-		{
-			answer += "Sorry, I don't know about " + input;
-		}
-		
 		return answer;
 	}
 
-	
+	private String randomTopicGenerator()
+	{
+		String randomTopic = "";
+		int random = (int) (Math.random() * 7);
+		
+		switch (random)
+		{
+		case 0:
+			randomTopic = "Did you hear about the daft punk beastie boys mix?";
+			break;
+		case 1:
+			randomTopic = "Can oyu bring me sriracha?";
+			break;
+			
+		}
+	}
 	
 }
