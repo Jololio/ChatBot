@@ -73,7 +73,7 @@ public class ChatbotController
 			randomTopic = "Did you hear about the daft punk beastie boys mix?";
 			break;
 		case 1:
-			randomTopic = "Can oyu bring me sriracha?";
+			randomTopic = "Can you bring me sriracha?";
 			break;
 			
 		}
