@@ -29,6 +29,7 @@ public class Chatbot {
 		buildPoliticalTopicsList();
 	}
 
+	//List which contains instances of memes
 	private void buildMemesList() 
 	{
 		
@@ -56,6 +57,7 @@ public class Chatbot {
 		
 	}
 
+	//List which contains instances of political topics
 	private void buildPoliticalTopicsList() 
 	{
 		
@@ -83,6 +85,7 @@ public class Chatbot {
 		
 	}
 
+	//Unfinished: Will detect when the user quits the chatbot
 	public boolean quitChecker(String userInput)
 	{
 		
@@ -179,6 +182,7 @@ public class Chatbot {
 		return hasMemes;
 	}
 
+	//Check for the mashing parameter in the userInput
 	public boolean keyboardMashChecker(String mashing)
 	{
 		boolean hasKeyboardMash = false;
@@ -201,6 +205,7 @@ public class Chatbot {
 		return mashing;
 	}
 	
+	//Returns the username
 	public String getUserName() 
 	{
 		return userName;
@@ -242,16 +247,19 @@ public class Chatbot {
 		this.mashing = mashing;
 	}
 	
+	//Will change the content of the Chatbot
 	public void setContent(String content) 
 	{
 		this.content = content;
 	}
 
+	//Will change the chatbot username
 	public void setUserName(String userName)
 	{
 		this.userName = userName;
 	}
 	
+	//Will change the political topics
 	public void setPoliticalTopicList (ArrayList<String> politicalTopicList)
 	{
 		this.politicalTopicList = politicalTopicList;

@@ -3,6 +3,7 @@ import javax.swing.JOptionPane;
 
 public class ChatViewer 
 {
+	//Will grab the response from the user
 	public String collectResponse(String question)
 	{
 		String response = "";
@@ -12,6 +13,7 @@ public class ChatViewer
 		return response;
 	}
 	
+	//Will grab the user choice
 	public int collectUserOption(String question)
 	{
 		int response = 0;
@@ -21,6 +23,7 @@ public class ChatViewer
 		return response;
 	}
 	
+	//Will show a message
 	public void displayMessage(String message)
 	{
 		JOptionPane.showMessageDialog(null, message);

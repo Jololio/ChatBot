@@ -29,6 +29,7 @@ public class ChatbotController
 		
 	}
 	
+	//Method to check input for memes, length, and content
 	public String useChatbotCheckers(String input)
 	{
 		String answer = "";
@@ -62,6 +63,7 @@ public class ChatbotController
 		return answer;
 	}
 
+	//Will generate a random topic
 	private String randomTopicGenerator()
 	{
 		String randomTopic = "";

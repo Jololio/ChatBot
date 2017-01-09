@@ -33,6 +33,7 @@ public class ChatPanel extends JPanel
 		setupListeners();
 	}
 	
+	//Sets up the display
 	private void setupChatDisplay()
 	{
 		chatDisplay.setEditable(false);
@@ -41,6 +42,7 @@ public class ChatPanel extends JPanel
 		chatDisplay.setWrapStyleWord(true);
 	}
 	
+	//Adds the components of the program to the screen
 	private void setupPanel()
 	{
 		this.setLayout(baseLayout);
@@ -49,6 +51,8 @@ public class ChatPanel extends JPanel
 		this.add(chatField);
 		this.add(chatButton);
 	}
+	
+	//Locations of the screen components
 	private void setupLayout()
 	{
 		baseLayout.putConstraint(SpringLayout.NORTH, chatButton, 6, SpringLayout.SOUTH, chatField);
@@ -58,6 +62,7 @@ public class ChatPanel extends JPanel
 		baseLayout.putConstraint(SpringLayout.NORTH, chatField, 198, SpringLayout.NORTH, this);
 		baseLayout.putConstraint(SpringLayout.WEST, chatField, 73, SpringLayout.WEST, this);
 	}
+	//Listeners for actions
 	private void setupListeners()
 	{
 		chatButton.addActionListener(new ActionListener()

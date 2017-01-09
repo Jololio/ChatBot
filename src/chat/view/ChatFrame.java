@@ -20,6 +20,7 @@ public class ChatFrame extends JFrame
 		setupFrame();
 	}
 	
+	//Sets the parameters for the frame
 	private void setupFrame()
 	{
 		this.setContentPane(basePanel);
