@@ -196,6 +196,51 @@ public class Chatbot {
 		
 	}
 	
+	//Checks for HTML in userInput
+	public boolean inputHTMLChecker(String currentInput)
+	{
+		boolean inputHTML = false;
+		if(currentInput.contains("<P>"))
+		{
+			inputHTML = true;
+		}
+		else if(currentInput.contains("<A HREF=\""))
+		{
+			int index = currentInput.indexOf("<A HREF=\"") + 9;
+			String sub = currentInput.substring(index);
+			
+			if(sub.contains("\">"))
+			{
+				int index2 = sub.indexOf("\">");
+				String sub2 = sub.substring(index);
+				
+				if(sub2.contains(" </o>"))
+				{
+					inputHTML = true;
+				}
+			}
+		}
+		else if(currentInput.contains("<"))
+		{
+			String lower = currentInput.toLowerCase();
+			int openIndex1 = lower.indexOf("<") + 1;
+			String tag = "";
+			if(lower.contains(">"))
+			{
+				int openIndex2 = lower.indexOf(">");
+				tag = lower.substring(openIndex2, openIndex2);
+				String sub = lower.substring(openIndex2 + 1);
+				
+				if(sub.contains("</" + tag + ">"))
+				{
+					inputHTML = true;
+				}
+			}
+		}
+		return inputHTML;
+	}
+	
+	
 	/**
 	 * * Returns the username of this Chatbot instance. * @return The username
 	 * of the Chatbot.
