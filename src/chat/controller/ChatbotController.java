@@ -79,6 +79,7 @@ public class ChatbotController
 			break;
 			
 		}
+		return randomTopic;
 	}
 	
 }

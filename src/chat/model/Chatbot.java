@@ -85,10 +85,16 @@ public class Chatbot {
 		
 	}
 
-	//Unfinished: Will detect when the user quits the chatbot
+	//Will detect when the user quits the chatbot
 	public boolean quitChecker(String userInput)
 	{
+		boolean quitCheck = false;
 		
+		if(userInput.equalsIgnoreCase("quit"))
+		{
+			quitCheck = true;
+		}
+		return quitCheck;
 	}
 	
 	
