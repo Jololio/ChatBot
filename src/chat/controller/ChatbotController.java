@@ -2,16 +2,19 @@ package chat.controller;
 import chat.model.Chatbot;
 import chat.view.ChatViewer;
 import chat.view.ChatFrame;
+import chat.model.CTECTwitter;
 
 public class ChatbotController 
 {
 	private Chatbot stupidBot;
 	private ChatViewer chatView;
 	private ChatFrame baseFrame;
+	private CTECTwitter tweetBot;
 	
 	public ChatbotController()
 	{
 		stupidBot = new Chatbot("Boaty McBoatFace");
+		tweetBot = new CTECTwitter(this);
 		chatView = new ChatViewer();
 		baseFrame = new ChatFrame(this);
 	}
@@ -80,6 +83,17 @@ public class ChatbotController
 			
 		}
 		return randomTopic;
+	}
+	
+	public void useTwitter(String text)
+	{
+		tweetBot.sendTweet(text);
+	}
+	
+	public void handleErrors(Exception currentException)
+	{
+		chatView.displayMessage("There has been an error. The next window will provide details");
+		chatView.displayMessage(currentException.getMessage());
 	}
 	
 }

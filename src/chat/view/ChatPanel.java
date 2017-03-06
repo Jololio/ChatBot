@@ -13,6 +13,7 @@ public class ChatPanel extends JPanel
 	private JTextArea chatDisplay;
 	private JTextField chatField;
 	private JButton chatButton;
+	private JButton sendTweetButton;
 	
 	
 	
@@ -25,6 +26,7 @@ public class ChatPanel extends JPanel
 		chatDisplay = new JTextArea(5, 25);
 		chatField = new JTextField(25);
 		chatButton = new JButton("Chat with the bot");
+		sendTweetButton = new JButton("");
 		
 		
 		setupLayout();
@@ -50,6 +52,7 @@ public class ChatPanel extends JPanel
 		this.add(chatDisplay);
 		this.add(chatField);
 		this.add(chatButton);
+		this.add(sendTweetButton);
 	}
 	
 	//Locations of the screen components
@@ -76,5 +79,15 @@ public class ChatPanel extends JPanel
 				chatField.setText("");
 			}
 		});
+		sendTweetButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				baseController.useTwitter(chatField.getText());
+			}
+	
+		});
+		
+		
 	}
 }
