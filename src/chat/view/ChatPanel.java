@@ -88,6 +88,36 @@ public class ChatPanel extends JPanel
 	
 		});
 		
+		chatField.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent enterPress)
+			{
+				scrollTextUp();
+			}
+			
+		});
+	}
+	
+	private void scrollTextUp()
+	{
+		String personWords = chatField.getText();
+		String chatbotResponse = baseController.useChatbotCheckers(personWords);
+		String currentText = chatDisplay.getText();
 		
+		chatDisplay.setText("You said: " + personWords + "\n" + "Chatbot says: " + chatbotResponse + "\n" + currentText);
+		chatDisplay.setCaretPosition(0);
+		
+		chatField.setText("");
+	}
+	private void scrollTextDown()
+	{
+		String personWords = chatField.getText();
+		String chatbotResponse = baseController.useChatbotCheckers(personWords);
+		String oldText = chatDisplay.getText();
+		
+		chatDisplay.setText(oldText + "You said: " + personWords + "\n" + "Chatbot says: " + chatbotResponse);
+		chatDisplay.setCaretPosition(chatDisplay.getCaretPosition());
+
+		chatField.setText("");
 	}
 }

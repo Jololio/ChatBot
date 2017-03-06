@@ -10,7 +10,7 @@ public class ChatbotController
 	private ChatViewer chatView;
 	private ChatFrame baseFrame;
 	private CTECTwitter tweetBot;
-	
+
 	public ChatbotController()
 	{
 		stupidBot = new Chatbot("Boaty McBoatFace");
