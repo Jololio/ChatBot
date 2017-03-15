@@ -14,7 +14,8 @@ public class ChatPanel extends JPanel
 	private JTextField chatField;
 	private JButton chatButton;
 	private JButton sendTweetButton;
-	
+	private JButton saveButton;
+	private JButton loadButton;
 	
 	
 	
@@ -27,6 +28,8 @@ public class ChatPanel extends JPanel
 		chatField = new JTextField(25);
 		chatButton = new JButton("Chat with the bot");
 		sendTweetButton = new JButton("");
+		saveButton = new JButton("save");
+		loadButton = new JButton("load");
 		
 		
 		setupLayout();
