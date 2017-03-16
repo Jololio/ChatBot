@@ -2,6 +2,7 @@ package chat.controller;
 import chat.model.Chatbot;
 import chat.view.ChatViewer;
 import chat.view.ChatFrame;
+import chat.view.ChatPanel;
 import chat.model.CTECTwitter;
 
 public class ChatbotController 
@@ -94,6 +95,21 @@ public class ChatbotController
 	{
 		chatView.displayMessage("There has been an error. The next window will provide details");
 		chatView.displayMessage(currentException.getMessage());
+	}
+	
+	public ChatViewer getChatView()
+	{
+		return chatView;
+	}
+	
+	public Chatbot getChatbot()
+	{
+		return stupidBot;
+	}
+	
+	public ChatFrame getBaseFrame()
+	{
+		return baseFrame;
 	}
 	
 }

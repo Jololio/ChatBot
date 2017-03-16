@@ -3,8 +3,12 @@ package chat.model;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 import chat.controller.ChatbotController;
+import twitter4j.GeoLocation;
+import twitter4j.Query;
+import twitter4j.QueryResult;
 import twitter4j.Status;
 import twitter4j.Twitter;
 import twitter4j.TwitterException;
@@ -16,6 +20,7 @@ public class CTECTwitter
 	private Twitter twitterBot;
 	private List<Status> searchedTweets;
 	private List<String> ignoredWords;
+	private List<String> tweetedWords;
 	
 	
 	public CTECTwitter(ChatbotController baseController)
@@ -23,6 +28,7 @@ public class CTECTwitter
 		this.baseController = baseController;
 		searchedTweets = new ArrayList<Status>();
 		ignoredWords = new ArrayList<String>();
+		tweetedWords = new ArrayList<String>();
 		twitterBot = TwitterFactory.getSingleton();
 	}
 	
@@ -42,9 +48,29 @@ public class CTECTwitter
 		}
 	}
 
-	private void createIgnoredWordList()
+	private String[] createIgnoredWordList()
 	{
+		String [] boringWords;
 		
+		int wordCount = 0;
+		Scanner wordScanner = new Scanner(this.getClass().getResourceAsStream("commonWords.txt"));
+		
+		while(wordScanner.hasNextLine())
+		{
+			wordScanner.nextLine();
+			wordCount++;
+		}
+		boringWords = new String [wordCount];
+		wordScanner.close();
+		
+		wordScanner = new Scanner(this.getClass().getResourceAsStream("commonWords.txt"));
+		for(int index = 0; index < boringWords.length; index++)
+		{
+			boringWords[index] = wordScanner.nextLine();
+		}
+		
+		wordScanner.close();
+		return boringWords;
 	}
 	
 	private void collectTweets(String username)
@@ -52,17 +78,7 @@ public class CTECTwitter
 		
 	}
 	
-	public String getMostCommonWord()
-	{
-		String results = "";
-		collectTweets(user);
-		turnStatusesToWords();
-		
-		removeAllBoringWords();
-		removeEmptyText();
-		results += "from " + user + calculatePopularWordAndCount();
-		return results;
-	}
+	
 	
 	private void turnStatusesToWords()
 	{
@@ -79,7 +95,7 @@ public class CTECTwitter
 	
 	private void removeAllBoringWords()
 	{
-		String [] boringWords = createIgnoredWordArray();
+		String [] boringWords = createIgnoredWordList();
 		for(int index = 0; index < tweetedWords.size(); index++)
 		{
 			for(int boringIndex = 0; boringIndex < boringWords.length; boringIndex++)
@@ -117,7 +133,7 @@ public class CTECTwitter
 			int currentPopularity = 0;
 			for(int searched = index + 1; searched < tweetedWords.size(); searched++)
 			{
-				if(tweetedWords.get(index).equalsIgnoreCase(tweetedWords.get(searched)) && !tweeted.get(index).equals(mostPopular))
+				if(tweetedWords.get(index).equalsIgnoreCase(tweetedWords.get(searched)) && !tweetedWords.get(index).equals(mostPopular))
 				{
 					currentPopularity++;
 				}
@@ -150,13 +166,37 @@ public class CTECTwitter
 
 	public String getMostPopularWord(String username)
 	{
-		gatherTheTweets(username);
-		turnTweetsToWords();
-		removeBoringWords();
-		removeBlankWords();
+		collectTweets(username);
+		turnStatusesToWords();
+		removeAllBoringWords();
+		removeEmptyText();
 		
-		String information = "The tweet count is " + allTheTweets.size() + " and " + username + "'s " + calculateTopWord();
+		String information = "The tweet count is " + searchedTweets.size() + " and " + username + "'s " + calculatePopularWordAndCount();
 		return information;
+	}
+	
+	public String restarauntInvestigation()
+	{
+		String results = "";
+		
+		Query query = new Query("restaraunts");
+		query.setCount(100);
+		query.setGeoCode(new GeoLocation(40.587521, -111.869178), 5, Query.KILOMETERS);
+		query.setSince("2016-1-1");
+		try
+		{
+			QueryResult result = twitterBot.search(query);
+			results += "Count : " + result.getTweets().size() + "\n";
+			for(Status tweet : result.getTweets())
+			{
+				results += "@" + tweet.getUser().getName() + ": " + tweet.getText() + "\n";
+			}
+		}
+		catch(TwitterException error)
+		{
+			error.printStackTrace();
+		}
+		return results;
 	}
 
 	
